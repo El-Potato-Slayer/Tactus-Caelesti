@@ -1,3 +1,4 @@
+/* eslint-disable */
 module.exports = {
   style: {
     postcss: {
@@ -7,4 +8,5 @@ module.exports = {
       ],
     },
   },
-}
+};
+/* eslint-enable */

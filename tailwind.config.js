@@ -1,5 +1,6 @@
-const colors = require('tailwindcss/colors')
-
+/* eslint-disable */
+const colors = require('tailwindcss/colors');
+/* eslint-enable */
 module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   presets: [],
@@ -968,4 +969,4 @@ module.exports = {
     zIndex: ['responsive', 'focus-within', 'focus'],
   },
   plugins: [],
-}
+};
