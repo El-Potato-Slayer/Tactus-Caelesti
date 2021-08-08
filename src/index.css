@@ -1,7 +1,128 @@
 /* stylelint-disable */
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 /* stylelint-enable */
+.header,
+.sub-header {
+  @apply flex;
+  @apply justify-center;
+  @apply items-center;
+}
+
+.header {
+  @apply relative;
+  min-height: 60vh;
+  background: url("./assets/header4.jpg") top;
+  background-size: cover;
+}
+
+.header > h1 {
+  @apply hidden;
+}
+
+.header::after {
+  @apply absolute;
+  @apply h-full;
+  @apply w-full;
+  @apply flex;
+  @apply justify-center;
+  @apply items-center;
+  content: "Tactus Caelesti";
+  background: rgba(0, 0, 0, 0.6);
+  font-size: 3rem;
+}
+
+.sub-header {
+  @apply grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  min-height: 100vh;
+}
+
+.sub-header > a {
+  @apply flex;
+  @apply justify-center;
+  @apply w-full;
+  @apply h-full;
+}
+
+.sub-header > a > section {
+  @apply flex;
+  @apply justify-center;
+  @apply w-full;
+}
+
+.sub-header > a > section > h2 {
+  @apply hidden;
+}
+
+.sub-header > a:first-of-type > section {
+  @apply relative;
+  background: url("./assets/planet.jpg") center;
+  @apply bg-cover;
+}
+
+.sub-header > a:first-of-type > section::after {
+  @apply w-full;
+  @apply h-full;
+  @apply absolute;
+  @apply flex;
+  @apply justify-center;
+  @apply items-center;
+  content: "Planets";
+  font-size: 1.5rem;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.sub-header > a:last-of-type > section {
+  @apply relative;
+  background: url("./assets/moon.jpg") center;
+  @apply bg-cover;
+}
+
+.sub-header > a:last-of-type > section::after {
+  @apply w-full;
+  @apply h-full;
+  @apply absolute;
+  @apply flex;
+  @apply justify-center;
+  @apply items-center;
+  content: "Moons";
+  font-size: 1.5rem;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+@media only screen and (min-width: 768px) {
+  .sub-header {
+    @apply grid;
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    min-height: 40vh;
+  }
+}
+
+@media (hover) {
+  .sub-header > a section h2 {
+    @apply hidden;
+  }
+  .sub-header a:first-of-type section::after {
+    background: rgba(0, 0, 0, 0.8);
+    -webkit-transition: all ease-in-out 0.15s;
+    transition: all ease-in-out 0.15s;
+  }
+  .sub-header a:last-of-type section::after {
+    background: rgba(0, 0, 0, 0.8);
+    -webkit-transition: all ease-in-out 0.15s;
+    transition: all ease-in-out 0.15s;
+  }
+  .sub-header a:hover section::after {
+    background: rgba(0, 0, 0, 0.3);
+  }
+}
+
+body {
+  @apply bg-gray-900;
+  color: white;
+}
+/*# sourceMappingURL=index.css.map */

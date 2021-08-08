@@ -1,0 +1,14 @@
+/* stylelint-disable */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* stylelint-enable */
+
+@import './styles/home';
+
+body {
+  @apply bg-gray-900;
+  color: white;
+}
