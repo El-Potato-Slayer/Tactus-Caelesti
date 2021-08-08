@@ -7,7 +7,7 @@
 
 .header {
   @apply relative;
-  min-height: 60vh;
+  min-height: 50vh;
   background: url('./assets/header4.jpg') top;
   background-size: cover;
 
@@ -24,7 +24,7 @@
     @apply items-center;
     content: "Tactus Caelesti";
     background: rgba(0,0,0,0.6);
-    font-size: 3rem;
+    font-size: 1.75rem;
   }
 }
 
@@ -88,6 +88,13 @@
 }
 
 @media only screen and (min-width: 768px) {
+  .header {
+    min-height: 60vh;
+    &::after{
+      font-size: 3rem;
+    }
+  }
+  
   .sub-header {
     @apply grid;
     grid-template-columns: 1fr 1fr;
