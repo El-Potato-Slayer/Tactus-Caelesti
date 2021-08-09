@@ -17,10 +17,14 @@ const initialState = {
 
 const solarSystemReducer = (state = initialState, { type, payload }) => {
   switch (type) {
+    case 'SET_BODIES':
+      return { ...state, bodies: [...payload] };
     case 'SET_PLANETS':
       return { ...state, planets: [...payload] };
     case 'SET_MOONS':
       return { ...state, moons: [...payload] };
+    case 'SELECTED_CATEGORY':
+      return { ...state, selectedCategory: payload };
     default:
       return state;
   }
