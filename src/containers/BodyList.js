@@ -1,17 +1,15 @@
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-// import { Link } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-// import BodyDetails from '../components/BodyDetails';
-// import { selectedCategory } from '../store/actions';
 
 function BodyList(props) {
   const { bodyType } = props;
   let { bodies } = props;
-  bodies = bodies.filter((body) => (
-    body.type === bodyType
-  ));
-  console.log(bodies);
+  if (bodyType !== 'all') {
+    bodies = bodies.filter((body) => (
+      body.type === bodyType
+    ));
+  }
   return (
     <div className="list-container">
       {
@@ -27,8 +25,6 @@ function BodyList(props) {
                 backgroundSize: 'cover',
               }}
             />
-            {/* {body.name} */}
-            {/* </Link> */}
           </>
         ))
       }

@@ -8,6 +8,7 @@
   @apply flex;
   @apply justify-center;
   @apply items-center;
+  font-family: 'Exan', sans-serif;
 }
 
 .header {
@@ -77,7 +78,7 @@
 
 .sub-header > a:last-of-type > section {
   @apply relative;
-  background: url("./assets/moon.jpg") center;
+  background: url("./assets/blackhole.jpg") center;
   @apply bg-cover;
 }
 
@@ -88,7 +89,7 @@
   @apply flex;
   @apply justify-center;
   @apply items-center;
-  content: "Moons";
+  content: "Blackholes";
   font-size: 1.5rem;
   background: rgba(0, 0, 0, 0.4);
 }
@@ -109,6 +110,13 @@
 }
 
 @media (hover) {
+  .header::after {
+    -webkit-transition: all ease-in-out 0.15s;
+    transition: all ease-in-out 0.15s;
+  }
+  .header:hover::after {
+    background: rgba(0, 0, 0, 0.2);
+  }
   .sub-header > a section h2 {
     @apply hidden;
   }
@@ -195,15 +203,6 @@
   width: 100%;
 }
 
-.body-details .body-header::after {
-  @apply absolute;
-  content: "";
-  height: 100%;
-  width: 100%;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(80%, rgba(4, 4, 4, 0)), color-stop(90%, rgba(4, 4, 4, 0.5)), to(#040404));
-  background: linear-gradient(rgba(4, 4, 4, 0) 80%, rgba(4, 4, 4, 0.5) 90%, #040404 100%);
-}
-
 .body-details .body-info h3 {
   @apply py-8;
   font-size: 1.75rem;
@@ -218,17 +217,47 @@
 }
 
 .navbar {
-  @apply absolute;
-  @apply grid;
+  @apply flex;
   @apply w-full;
-  @apply py-4;
+  @apply my-6;
+  @apply px-6;
+  @apply justify-center;
+  @apply flex-col;
   place-items: center;
-  z-index: 1;
 }
 
-.navbar a {
+.navbar .links a {
   @apply py-4;
   @apply px-4;
+}
+
+.navbar .logo {
+  @apply mb-2;
+  font-family: 'Exan', sans-serif;
+  font-size: 1.25rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .navbar {
+    @apply relative;
+    @apply justify-between;
+    @apply flex-row;
+  }
+  .navbar .logo {
+    @apply flex;
+  }
+  .navbar .links {
+    @apply absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+}
+
+@font-face {
+  font-family: Exan;
+  src: url("./assets/fonts/Exan-Regular.ttf");
 }
 
 body {

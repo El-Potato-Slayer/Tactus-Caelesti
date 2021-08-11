@@ -27,6 +27,10 @@ function App() {
         <Route exact path="/">
           <Home />
         </Route>
+        <Route path="/all">
+          <Navbar />
+          <BodyList bodyType="all" />
+        </Route>
         <Route exact path="/planets">
           <Navbar />
           <BodyList bodyType="planet" />

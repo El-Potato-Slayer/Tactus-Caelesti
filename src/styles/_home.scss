@@ -3,6 +3,7 @@
   @apply flex;
   @apply justify-center;
   @apply items-center;
+  font-family: 'Exan', sans-serif;
 }
 
 .header {
@@ -70,7 +71,7 @@
 
   &:last-of-type > section {
     @apply relative;
-    background: url('./assets/moon.jpg') center;
+    background: url('./assets/blackhole.jpg') center;
     @apply bg-cover;
 
     &::after{
@@ -80,7 +81,7 @@
       @apply flex;
       @apply justify-center;
       @apply items-center;
-      content: "Moons";
+      content: "Blackholes";
       font-size: 1.5rem;
       background: rgba(0,0,0,0.4);
     }
@@ -103,6 +104,16 @@
 }
 
 @media (hover) {
+  .header::after {
+    transition: all ease-in-out 0.15s;
+  }
+  
+  .header:hover{
+    &::after {
+      background: rgba(0,0,0,0.2);
+    }
+  }
+  
   .sub-header > a section h2 {
     @apply hidden;
   }
