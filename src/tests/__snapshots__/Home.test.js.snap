@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders snapshot 1`] = `
+Array [
+  <a
+    className="header"
+    data-testid="home-header"
+    href="/all"
+    onClick={[Function]}
+  >
+    <h1>
+      Tactus Caelesti
+    </h1>
+  </a>,
+  <div
+    className="sub-header"
+  >
+    <a
+      href="/planets"
+      onClick={[Function]}
+    >
+      <section>
+        <h2>
+          Planets
+        </h2>
+      </section>
+    </a>
+    <a
+      href="/blackholes"
+      onClick={[Function]}
+    >
+      <section>
+        <h2>
+          Blackholes
+        </h2>
+      </section>
+    </a>
+  </div>,
+]
+`;

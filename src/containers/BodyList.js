@@ -11,7 +11,7 @@ function BodyList(props) {
     ));
   }
   return (
-    <div className="list-container">
+    <div className="list-container" data-testid="list">
       {
         bodies.map((body) => (
           <>
@@ -19,7 +19,7 @@ function BodyList(props) {
               className="body"
               key={body.id}
               data-after-content={body.name}
-              to={`/${bodyType}s/${body.id}`}
+              to={`/${bodyType}/${body.id}`}
               style={{
                 background: `url(${body.picture}) center`,
                 backgroundSize: 'cover',

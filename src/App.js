@@ -27,15 +27,19 @@ function App() {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route path="/all">
+        <Route exact path="/all">
           <Navbar />
           <BodyList bodyType="all" />
+        </Route>
+        <Route path="/all/:id">
+          <Navbar />
+          <BodyDetails />
         </Route>
         <Route exact path="/planets">
           <Navbar />
           <BodyList bodyType="planet" />
         </Route>
-        <Route path="/planets/:id">
+        <Route path="/planet/:id">
           <Navbar />
           <BodyDetails />
         </Route>
@@ -43,7 +47,7 @@ function App() {
           <Navbar />
           <BodyList bodyType="blackhole" />
         </Route>
-        <Route path="/blackholes/:id">
+        <Route path="/blackhole/:id">
           <Navbar />
           <BodyDetails />
         </Route>
