@@ -8,11 +8,13 @@
   @apply flex;
   @apply justify-center;
   @apply items-center;
+
   font-family: 'Exan', sans-serif;
 }
 
 .header {
   @apply relative;
+
   min-height: 50vh;
   background: url("./assets/header4.jpg") top;
   background-size: cover;
@@ -29,6 +31,7 @@
   @apply flex;
   @apply justify-center;
   @apply items-center;
+
   content: "Tactus Caelesti";
   background: rgba(0, 0, 0, 0.6);
   font-size: 1.75rem;
@@ -36,8 +39,9 @@
 
 .sub-header {
   @apply grid;
+
   -ms-grid-columns: 1fr;
-      grid-template-columns: 1fr;
+  grid-template-columns: 1fr;
   min-height: 100vh;
 }
 
@@ -60,7 +64,9 @@
 
 .sub-header > a:first-of-type > section {
   @apply relative;
+
   background: url("./assets/planet.jpg") center;
+
   @apply bg-cover;
 }
 
@@ -71,6 +77,7 @@
   @apply flex;
   @apply justify-center;
   @apply items-center;
+
   content: "Planets";
   font-size: 1.5rem;
   background: rgba(0, 0, 0, 0.4);
@@ -78,7 +85,9 @@
 
 .sub-header > a:last-of-type > section {
   @apply relative;
+
   background: url("./assets/blackhole.jpg") center;
+
   @apply bg-cover;
 }
 
@@ -89,6 +98,7 @@
   @apply flex;
   @apply justify-center;
   @apply items-center;
+
   content: "Blackholes";
   font-size: 1.5rem;
   background: rgba(0, 0, 0, 0.4);
@@ -98,13 +108,16 @@
   .header {
     min-height: 60vh;
   }
+
   .header::after {
     font-size: 3rem;
   }
+
   .sub-header {
     @apply grid;
+
     -ms-grid-columns: 1fr 1fr;
-        grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     min-height: 40vh;
   }
 }
@@ -114,22 +127,27 @@
     -webkit-transition: all ease-in-out 0.15s;
     transition: all ease-in-out 0.15s;
   }
+
   .header:hover::after {
     background: rgba(0, 0, 0, 0.2);
   }
+
   .sub-header > a section h2 {
     @apply hidden;
   }
+
   .sub-header a:first-of-type section::after {
     background: rgba(0, 0, 0, 0.8);
     -webkit-transition: all ease-in-out 0.15s;
     transition: all ease-in-out 0.15s;
   }
+
   .sub-header a:last-of-type section::after {
     background: rgba(0, 0, 0, 0.8);
     -webkit-transition: all ease-in-out 0.15s;
     transition: all ease-in-out 0.15s;
   }
+
   .sub-header a:hover section::after {
     background: rgba(0, 0, 0, 0.3);
   }
@@ -137,15 +155,17 @@
 
 .list-container {
   @apply grid;
+
   -ms-grid-columns: 1fr;
-      grid-template-columns: 1fr;
+  grid-template-columns: 1fr;
 }
 
 .list-container .body {
   @apply relative;
   @apply grid;
   @apply w-full;
-  aspect-ratio: 1;
+
+  aspect-ratio: 1 / 1;
   place-items: center;
 }
 
@@ -156,6 +176,7 @@
   @apply flex;
   @apply justify-center;
   @apply items-center;
+
   content: attr(data-after-content);
   font-size: 1.5rem;
   background: rgba(0, 0, 0, 0.4);
@@ -164,8 +185,9 @@
 @media only screen and (min-width: 480px) {
   .list-container {
     -ms-grid-columns: 1fr 1fr;
-        grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
   }
+
   .list-container .body {
     font-size: 1.75rem;
   }
@@ -174,8 +196,9 @@
 @media only screen and (min-width: 768px) {
   .list-container {
     -ms-grid-columns: 1fr 1fr 1fr;
-        grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
+
   .list-container .body {
     font-size: 1.5rem;
   }
@@ -187,6 +210,7 @@
     -webkit-transition: all ease-in-out 0.15s;
     transition: all ease-in-out 0.15s;
   }
+
   .list-container .body:hover::after {
     background: rgba(0, 0, 0, 0.3);
   }
@@ -194,17 +218,20 @@
 
 .body-details {
   @apply grid;
+
   place-items: center;
 }
 
 .body-details .body-header {
   @apply relative;
+
   height: 50vh;
   width: 100%;
 }
 
 .body-details .body-info h3 {
   @apply py-8;
+
   font-size: 1.75rem;
 }
 
@@ -223,6 +250,7 @@
   @apply px-6;
   @apply justify-center;
   @apply flex-col;
+
   place-items: center;
 }
 
@@ -233,6 +261,7 @@
 
 .navbar .logo {
   @apply mb-2;
+
   font-family: 'Exan', sans-serif;
   font-size: 1.25rem;
 }
@@ -243,15 +272,18 @@
     @apply justify-between;
     @apply flex-row;
   }
+
   .navbar .logo {
     @apply flex;
   }
+
   .navbar .links {
     @apply absolute;
+
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
   }
 }
 

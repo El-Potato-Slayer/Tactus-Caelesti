@@ -1,24 +1,27 @@
 
 .body-details {
   @apply grid;
+
   place-items: center;
 
   .body-header {
     @apply relative;
+
     height: 50vh;
     width: 100%;
   }
-  
+
   .body-info {
     h3 {
       @apply py-8;
+
       font-size: 1.75rem;
     }
-  
+
     div p {
       @apply my-3;
     }
-  
+
     .exponent {
       margin-left: 0.125rem;
     }

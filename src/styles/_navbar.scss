@@ -5,7 +5,9 @@
   @apply px-6;
   @apply justify-center;
   @apply flex-col;
+
   place-items: center;
+
   .links a {
     @apply py-4;
     @apply px-4;
@@ -13,6 +15,7 @@
 
   .logo {
     @apply mb-2;
+
     font-family: 'Exan', sans-serif;
     font-size: 1.25rem;
   }
@@ -23,18 +26,17 @@
     @apply relative;
     @apply justify-between;
     @apply flex-row;
-    .logo{
+
+    .logo {
       @apply flex;
     }
 
-    .links{
+    .links {
       @apply absolute;
+
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
     }
   }
-}
-
-@media only screen and (min-width: 1024px) {
 }

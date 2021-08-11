@@ -1,11 +1,14 @@
-.list-container{
+.list-container {
   @apply grid;
+
   grid-template-columns: 1fr;
-  .body{
+
+  .body {
     @apply relative;
     @apply grid;
     @apply w-full;
-    aspect-ratio: 1;
+
+    aspect-ratio: 1 / 1;
     place-items: center;
 
     &::after {
@@ -15,15 +18,16 @@
       @apply flex;
       @apply justify-center;
       @apply items-center;
+
       content: attr(data-after-content);
       font-size: 1.5rem;
-      background: rgba(0,0,0,0.4);
+      background: rgba(0, 0, 0, 0.4);
     }
   }
 }
 
 @media only screen and (min-width: 480px) {
-  .list-container{
+  .list-container {
     grid-template-columns: 1fr 1fr;
 
     .body {
@@ -33,24 +37,24 @@
 }
 
 @media only screen and (min-width: 768px) {
-  .list-container{
+  .list-container {
     grid-template-columns: 1fr 1fr 1fr;
 
-    .body{
+    .body {
       font-size: 1.5rem;
     }
   }
 }
 
-@media (hover) { 
+@media (hover) {
   .list-container {
     .body::after {
-      background: rgba(0,0,0,0.8);
+      background: rgba(0, 0, 0, 0.8);
       transition: all ease-in-out 0.15s;
     }
-    
+
     .body:hover::after {
-      background: rgba(0,0,0,0.3);
+      background: rgba(0, 0, 0, 0.3);
     }
   }
 }
