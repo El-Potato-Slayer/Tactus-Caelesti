@@ -6,11 +6,10 @@ import BodyDetails from './components/BodyDetails';
 import Home from './components/Home';
 import Navbar from './components/Navbar';
 import BodyList from './containers/BodyList';
-import { setBodies } from './store/actions';
+import setBodies from './store/actions';
 
 function App() {
   const dispatch = useDispatch();
-  // const [bodies, ]
   const arr = [];
   useEffect(() => {
     db.collection('bodies').get().then((snapshot) => {
