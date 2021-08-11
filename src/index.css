@@ -217,6 +217,20 @@
   margin-left: 0.125rem;
 }
 
+.navbar {
+  @apply absolute;
+  @apply grid;
+  @apply w-full;
+  @apply py-4;
+  place-items: center;
+  z-index: 1;
+}
+
+.navbar a {
+  @apply py-4;
+  @apply px-4;
+}
+
 body {
   background: #040404;
   color: white;

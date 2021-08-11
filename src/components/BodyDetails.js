@@ -12,6 +12,26 @@ function BodyDetails() {
         setBody(doc.data());
       }
     });
+    // db.collection('bodies').add({
+    //   name: 'SYDS-0520',
+    //   volume: {
+    //     volValue: '0',
+    //     volExponent: null,
+    //   },
+    //   mass: {
+    //     massValue: '6.5582',
+    //     massExponent: '33',
+    //   },
+    //   radius: {
+    //     radiusValue: '4.354',
+    //     radiusExponent: '11',
+    //   },
+    //   type: 'blackhole',
+    //   gravity: 'Infinite',
+    //   density: 'Infinite',
+    //   picture: 'https://firebasestorage.googleapis.com/v0/b/tactus-caelesti.appspot.com/o/blackholes%2F6.jpeg?alt=media&token=74d6b053-23f4-40e4-a832-ff228477f877',
+    // });
+
     console.log(body);
   }, []);
   return (
