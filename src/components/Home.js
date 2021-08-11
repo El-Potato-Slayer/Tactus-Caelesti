@@ -12,7 +12,7 @@ function Home() {
             <h2>Planets</h2>
           </section>
         </Link>
-        <Link to="/moons">
+        <Link to="/blackholes">
           <section>
             <h2>Moons</h2>
           </section>

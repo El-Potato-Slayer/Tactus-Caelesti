@@ -1,44 +1,50 @@
-import { connect, useDispatch } from 'react-redux';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 // import { Link } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 // import BodyDetails from '../components/BodyDetails';
-import { selectedCategory } from '../store/actions';
+// import { selectedCategory } from '../store/actions';
 
 function BodyList(props) {
   const { bodyType } = props;
-  /* eslint-disable */
-  const bodies = props[bodyType];
-  /* eslint-enable */
-  const disptach = useDispatch();
-  disptach(selectedCategory(bodyType));
-
+  let { bodies } = props;
+  bodies = bodies.filter((body) => (
+    body.type === bodyType
+  ));
+  console.log(bodies);
   return (
-    <>
+    <div className="list-container">
       {
         bodies.map((body) => (
-          // <BodyPreview key={body.id} body={body} />
           <>
-            <Link key={body.id} to={`/${bodyType}/${body.id}`}>
-              {/* <BodyDetails /> */}
-              <p>{body.englishName}</p>
-            </Link>
-            {/* <p>{body.englishName}</p> */}
-            {/* <Route path={`/${bodyType}/:id`} component={BodyDetails} /> */}
+            <Link
+              className="body"
+              key={body.id}
+              data-after-content={body.name}
+              to={`/${bodyType}s/${body.id}`}
+              style={{
+                background: `url(${body.picture}) center`,
+                backgroundSize: 'cover',
+              }}
+            />
+            {/* {body.name} */}
+            {/* </Link> */}
           </>
         ))
       }
-    </>
+    </div>
   );
 }
 
 const mapStateToProps = (state) => ({
+  bodies: state.solarSystemReducer.bodies,
   planets: state.solarSystemReducer.planets,
   moons: state.solarSystemReducer.moons,
 });
 
 BodyList.propTypes = {
   bodyType: PropTypes.string.isRequired,
+  bodies: PropTypes.instanceOf(Array).isRequired,
 };
 
 export default connect(mapStateToProps)(BodyList);

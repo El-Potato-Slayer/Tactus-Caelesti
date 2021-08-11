@@ -4,6 +4,7 @@ const moons = [];
 const initialState = {
   planets,
   moons,
+  bodies: [],
 };
 
 // axios.get('https://api.le-systeme-solaire.net/rest/bodies')

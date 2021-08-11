@@ -7,8 +7,10 @@
 /* stylelint-enable */
 
 @import './styles/home';
+@import './styles/bodylist';
+@import './styles/bodydetails';
 
 body {
-  @apply bg-gray-900;
+  background: rgb(4, 4, 4);
   color: white;
 }

@@ -1,33 +1,115 @@
-import { connect, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
-import axios from 'axios';
-import { setBodies, setMoons, setPlanets } from '../store/actions';
+import { connect } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import db from '../firebase.config';
+// import PropTypes from 'prop-types';
+// import { useEffect, useState } from 'react';
+// import axios from 'axios';
+// import { setBodies, setMoons, setPlanets } from '../store/actions';
 
-function BodyDetails(props) {
-  const { bodies } = props;
+function BodyDetails() {
+  // const { bodies } = props;
   const { id } = useParams();
-  // const [body] = bodies.filter((b) => (
-  //   b.id === id
-  // ));
-  console.log(bodies);
-  const [body, setBody] = useState('');
-  const dispatch = useDispatch();
+  const [body, setBody] = useState(null);
   useEffect(() => {
-    axios.get('https://api.le-systeme-solaire.net/rest/bodies')
-      .then((resp) => {
-        dispatch(setBodies(resp.data.bodies));
-        dispatch(setPlanets(resp.data.bodies.filter((body) => body.isPlanet)));
-        dispatch(setMoons(resp.data.bodies.filter((body) => !body.isPlanet)));
-        setBody(resp.data.bodies.filter((b) => (
-          b.id === id
-        ))[0]);
-      });
+    db.collection('bodies').doc(id).get().then((doc) => {
+      if (doc.exists) {
+        setBody(doc.data());
+      }
+    });
+    console.log(body);
   }, []);
   return (
-    <section>
-      <h3>{body.englishName}</h3>
+    <section className="body-details">
+      { body
+        && (
+        <>
+          <div
+            className="body-header"
+            style={{
+              background: `url(${body.picture}) center`,
+              backgroundSize: 'cover',
+            }}
+          />
+          <div className="body-info">
+            <h3>{body.name}</h3>
+            <p>
+              Mass:
+              &nbsp;
+              {body.mass.massValue}
+              ×10
+              <sup className="exponent">
+                {body.mass.massExponent}
+              </sup>
+              &nbsp;
+              <span className="unit">kg</span>
+            </p>
+            <p>
+              Volume:
+              &nbsp;
+              {body.volume.volValue}
+              {
+                body.volume.volValue !== '0' && (
+                <>
+                  ×10
+                  <sup className="exponent">
+                    {body.volume.volExponent}
+                  </sup>
+                </>
+                )
+}
+              &nbsp;
+              <span className="unit">m</span>
+              <sup className="exponent">
+                3
+              </sup>
+            </p>
+            <p>
+              Density:
+              &nbsp;
+              {body.density}
+              &nbsp;
+              {
+                body.density !== 'Infinite' && (
+                <>
+                  <span className="unit">kg/m</span>
+                  <sup className="exponent">
+                    3
+                  </sup>
+                </>
+                )
+              }
+            </p>
+            <p>
+              Gravity:
+              &nbsp;
+              {body.gravity}
+              &nbsp;
+              {
+                body.gravity !== 'Infinite' && (
+                  <>
+                    <span className="unit">m/s</span>
+                    <sup className="exponent">
+                      2
+                    </sup>
+                  </>
+                )
+              }
+            </p>
+            <p>
+              Radius:
+              &nbsp;
+              {body.radius.radiusValue}
+              ×10
+              <sup className="exponent">
+                {body.radius.radiusExponent}
+              </sup>
+              &nbsp;
+              <span className="unit">km</span>
+            </p>
+          </div>
+        </>
+        )}
     </section>
   );
 }
@@ -38,8 +120,8 @@ const mapStateToProps = (state) => ({
   moons: state.solarSystemReducer.moons,
 });
 
-BodyDetails.propTypes = {
-  bodies: PropTypes.instanceOf(Array).isRequired,
-};
+// BodyDetails.propTypes = {
+//   bodies: PropTypes.instanceOf(Array).isRequired,
+// };
 
 export default connect(mapStateToProps)(BodyDetails);

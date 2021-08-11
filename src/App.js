@@ -1,22 +1,25 @@
-import axios from 'axios';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import db from './firebase.config';
 import BodyDetails from './components/BodyDetails';
 import Home from './components/Home';
 import Navbar from './components/Navbar';
 import BodyList from './containers/BodyList';
-import { setPlanets, setMoons, setBodies } from './store/actions';
+import { setBodies } from './store/actions';
 
 function App() {
   const dispatch = useDispatch();
+  // const [bodies, ]
+  const arr = [];
   useEffect(() => {
-    axios.get('https://api.le-systeme-solaire.net/rest/bodies')
-      .then((resp) => {
-        dispatch(setBodies(resp.data.bodies));
-        dispatch(setPlanets(resp.data.bodies.filter((body) => body.isPlanet)));
-        dispatch(setMoons(resp.data.bodies.filter((body) => !body.isPlanet)));
+    db.collection('bodies').get().then((snapshot) => {
+      snapshot.forEach((doc) => {
+        arr.push({ id: doc.id, ...doc.data() });
       });
+    }).then(() => {
+      dispatch(setBodies(arr));
+    });
   }, []);
   return (
     <Router>
@@ -26,17 +29,17 @@ function App() {
         </Route>
         <Route exact path="/planets">
           <Navbar />
-          <BodyList bodyType="planets" />
+          <BodyList bodyType="planet" />
         </Route>
         <Route path="/planets/:id">
           <Navbar />
           <BodyDetails />
         </Route>
-        <Route exact path="/moons">
+        <Route exact path="/blackholes">
           <Navbar />
-          <BodyList bodyType="moons" />
+          <BodyList bodyType="blackhole" />
         </Route>
-        <Route path="/moons/:id">
+        <Route path="/blackholes/:id">
           <Navbar />
           <BodyDetails />
         </Route>
