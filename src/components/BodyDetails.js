@@ -2,13 +2,8 @@ import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import db from '../firebase.config';
-// import PropTypes from 'prop-types';
-// import { useEffect, useState } from 'react';
-// import axios from 'axios';
-// import { setBodies, setMoons, setPlanets } from '../store/actions';
 
 function BodyDetails() {
-  // const { bodies } = props;
   const { id } = useParams();
   const [body, setBody] = useState(null);
   useEffect(() => {
