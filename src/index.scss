@@ -1,0 +1,22 @@
+/* stylelint-disable */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* stylelint-enable */
+
+@import './styles/home';
+@import './styles/bodylist';
+@import './styles/bodydetails';
+@import './styles/navbar';
+
+@font-face {
+  font-family: Exan;
+  src: url('./assets/fonts/Exan-Regular.ttf');
+}
+
+body {
+  background: rgb(4, 4, 4);
+  color: white;
+}

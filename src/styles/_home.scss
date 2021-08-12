@@ -1,0 +1,146 @@
+.header,
+.sub-header {
+  @apply flex;
+  @apply justify-center;
+  @apply items-center;
+
+  font-family: 'Exan', sans-serif;
+}
+
+.header {
+  @apply relative;
+
+  min-height: 50vh;
+  background: url('./assets/header4.jpg') top;
+  background-size: cover;
+
+  & > h1 {
+    @apply hidden;
+  }
+
+  &::after {
+    @apply absolute;
+    @apply h-full;
+    @apply w-full;
+    @apply flex;
+    @apply justify-center;
+    @apply items-center;
+
+    content: "Tactus Caelesti";
+    background: rgba(0, 0, 0, 0.6);
+    font-size: 1.75rem;
+  }
+}
+
+.sub-header {
+  @apply grid;
+
+  grid-template-columns: 1fr;
+  min-height: 100vh;
+}
+
+.sub-header > a {
+  @apply flex;
+  @apply justify-center;
+  @apply w-full;
+  @apply h-full;
+
+  & > section {
+    @apply flex;
+    @apply justify-center;
+    @apply w-full;
+
+    & > h2 {
+      @apply hidden;
+    }
+  }
+
+  &:first-of-type > section {
+    @apply relative;
+
+    background: url('./assets/planet.jpg') center;
+
+    @apply bg-cover;
+
+    &::after {
+      @apply w-full;
+      @apply h-full;
+      @apply absolute;
+      @apply flex;
+      @apply justify-center;
+      @apply items-center;
+
+      content: "Planets";
+      font-size: 1.5rem;
+      background: rgba(0, 0, 0, 0.4);
+    }
+  }
+
+  &:last-of-type > section {
+    @apply relative;
+
+    background: url('./assets/blackhole.jpg') center;
+
+    @apply bg-cover;
+
+    &::after {
+      @apply w-full;
+      @apply h-full;
+      @apply absolute;
+      @apply flex;
+      @apply justify-center;
+      @apply items-center;
+
+      content: "Blackholes";
+      font-size: 1.5rem;
+      background: rgba(0, 0, 0, 0.4);
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .header {
+    min-height: 60vh;
+
+    &::after {
+      font-size: 3rem;
+    }
+  }
+
+  .sub-header {
+    @apply grid;
+
+    grid-template-columns: 1fr 1fr;
+    min-height: 40vh;
+  }
+}
+
+@media (hover) {
+  .header::after {
+    transition: all ease-in-out 0.15s;
+  }
+
+  .header:hover {
+    &::after {
+      background: rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  .sub-header > a section h2 {
+    @apply hidden;
+  }
+
+  .sub-header a:first-of-type section::after {
+    background: rgba(0, 0, 0, 0.8);
+    transition: all ease-in-out 0.15s;
+  }
+
+  .sub-header a:last-of-type section::after {
+    background: rgba(0, 0, 0, 0.8);
+    transition: all ease-in-out 0.15s;
+  }
+
+  .sub-header a:hover section::after {
+    background: rgba(0, 0, 0, 0.3);
+  }
+}
