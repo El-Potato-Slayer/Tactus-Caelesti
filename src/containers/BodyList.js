@@ -3,29 +3,35 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 function BodyList(props) {
-  const { bodyType } = props;
+  const { bodyType, name } = props;
   let { bodies } = props;
   if (bodyType !== 'all') {
     bodies = bodies.filter((body) => (
       body.type === bodyType
     ));
   }
+  function results() {
+    if (name === '') {
+      return bodies;
+    }
+    return bodies.filter((body) => (
+      body.name.includes(name)
+    ));
+  }
   return (
     <div className="list-container" data-testid="list">
       {
-        bodies.map((body) => (
-          <>
-            <Link
-              className="body"
-              key={body.id}
-              data-after-content={body.name}
-              to={`/${bodyType}/${body.id}`}
-              style={{
-                background: `url(${body.picture}) center`,
-                backgroundSize: 'cover',
-              }}
-            />
-          </>
+        results().map((body) => (
+          <Link
+            className="body"
+            key={body.id}
+            data-after-content={body.name}
+            to={`/${bodyType}/${body.id}`}
+            style={{
+              background: `url(${body.picture}) center`,
+              backgroundSize: 'cover',
+            }}
+          />
         ))
       }
     </div>
@@ -34,13 +40,13 @@ function BodyList(props) {
 
 const mapStateToProps = (state) => ({
   bodies: state.solarSystemReducer.bodies,
-  planets: state.solarSystemReducer.planets,
-  moons: state.solarSystemReducer.moons,
+  name: state.filterReducer.name,
 });
 
 BodyList.propTypes = {
   bodyType: PropTypes.string.isRequired,
   bodies: PropTypes.instanceOf(Array).isRequired,
+  name: PropTypes.string.isRequired,
 };
 
 export default connect(mapStateToProps)(BodyList);

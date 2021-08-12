@@ -6,7 +6,7 @@ import BodyDetails from './components/BodyDetails';
 import Home from './components/Home';
 import Navbar from './components/Navbar';
 import BodyList from './containers/BodyList';
-import setBodies from './store/actions';
+import { setBodies } from './store/actions';
 
 function App() {
   const dispatch = useDispatch();
@@ -30,21 +30,21 @@ function App() {
           <Navbar />
           <BodyList bodyType="all" />
         </Route>
-        <Route path="/all/:id">
-          <Navbar />
-          <BodyDetails />
-        </Route>
         <Route exact path="/planets">
           <Navbar />
           <BodyList bodyType="planet" />
         </Route>
-        <Route path="/planet/:id">
-          <Navbar />
-          <BodyDetails />
-        </Route>
         <Route exact path="/blackholes">
           <Navbar />
           <BodyList bodyType="blackhole" />
+        </Route>
+        <Route path="/all/:id">
+          <Navbar />
+          <BodyDetails />
+        </Route>
+        <Route path="/planet/:id">
+          <Navbar />
+          <BodyDetails />
         </Route>
         <Route path="/blackhole/:id">
           <Navbar />
