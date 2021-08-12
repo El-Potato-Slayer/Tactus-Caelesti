@@ -15,7 +15,7 @@ function BodyList(props) {
       return bodies;
     }
     return bodies.filter((body) => (
-      body.name.includes(name)
+      body.name.toLowerCase().includes(name.toLowerCase())
     ));
   }
   return (
