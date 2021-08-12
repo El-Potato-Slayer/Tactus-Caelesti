@@ -1,8 +1,4 @@
-const planets = [];
-const moons = [];
 const initialState = {
-  planets,
-  moons,
   bodies: [],
 };
 
