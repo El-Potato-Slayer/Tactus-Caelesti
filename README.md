@@ -1,7 +1,7 @@
 # Tactus Caelesti
 A Catalogue application that receives a list of celestial bodies from an API. The list is categorized based on which link the user clicks. The data is retrieved on application start and stored in redux,
 
-![image](https://user-images.githubusercontent.com/43865875/129143126-c3e6c14c-c824-422c-8690-1e3014ee246d.png)
+![image](https://user-images.githubusercontent.com/43865875/129144256-b0321bb1-9b16-45de-8316-a71d8f22ddfc.png)
 
 [Live Demo](https://data-ten.vercel.app/)
 
